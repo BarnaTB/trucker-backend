@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:14-3.3
+    environment:
+      - POSTGRES_DB=eld
+      - POSTGRES_USER=eld_user
+      - POSTGRES_PASSWORD=eld_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+
+volumes:
+  postgis_data:
